@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
-    const [activeTab, setActiveTab] = useState('builder');
+    const [activeTab, setActiveTab] = useState<keyof typeof features>('builder');
 
     useEffect(() => {
         setIsVisible(true);
@@ -109,7 +109,7 @@ export default function Page() {
                     {Object.entries(features).map(([key, feature]) => (
                         <button
                             key={key}
-                            onClick={() => setActiveTab(key)}
+                            onClick={() => setActiveTab(key as keyof typeof features)}
                             className={`px-6 py-3 rounded-full font-medium transition-all ${
                                 activeTab === key
                                     ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
