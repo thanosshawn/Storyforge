@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
@@ -76,9 +77,11 @@ export default function Page() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                        <button className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transition-all transform hover:scale-105">
-                            🚀 Launch Builder
-                        </button>
+                        
+                            <Link href="/visualstorybuilder" className="px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full text-lg font-semibold hover:from-pink-600 hover:to-purple-600 transition-all transform hover:scale-105">
+                                🚀 Launch Builder
+                            
+                        </Link>
                         <button className="px-8 py-4 border-2 border-white/30 rounded-full text-lg font-semibold hover:bg-white/10 transition-all">
                             👁️ Watch Live Stories
                         </button>
