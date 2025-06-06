@@ -231,92 +231,63 @@ export default function VisualStoryBuilder() {
         const midY = (startY + endY) / 2;
 
         return (
-            <g key={conn.id} data-oid="z2ezkup">
+            <g key={conn.id}>
                 <path
                     d={`M ${startX} ${startY} Q ${midX} ${startY} ${endX} ${endY}`}
                     stroke="#ec4899"
                     strokeWidth="2"
                     fill="none"
                     className="opacity-70"
-                    data-oid="2p4:a-0"
                 />
 
-                <circle cx={endX} cy={endY} r="4" fill="#ec4899" data-oid="_obbu2-" />
+                <circle cx={endX} cy={endY} r="4" fill="#ec4899" />
             </g>
         );
     };
 
     return (
-        <div
-            className="w-full h-screen bg-gray-950 text-white flex flex-col overflow-hidden"
-            data-oid="zicqrgy"
-        >
+        <div className="w-full h-screen bg-gray-950 text-white flex flex-col overflow-hidden">
             {/* Top Navbar */}
-            <nav
-                className="bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-3 flex items-center justify-between z-50"
-                data-oid="w3ma23d"
-            >
-                <div className="flex items-center gap-4" data-oid="t0m8cjz">
-                    <div className="flex items-center gap-2" data-oid="t_jp-lc">
-                        <span className="text-2xl" data-oid="-2tvqfj">
-                            🔥
-                        </span>
+            <nav className="bg-gray-900/90 backdrop-blur-sm border-b border-gray-800 px-6 py-3 flex items-center justify-between z-50">
+                <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                        <span className="text-2xl">🔥</span>
                         <input
                             value={storyTitle}
                             onChange={(e) => setStoryTitle(e.target.value)}
                             className="bg-transparent text-xl font-semibold border-none outline-none text-white min-w-[200px]"
                             placeholder="Story Title"
-                            data-oid="3r34xbk"
                         />
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4" data-oid="bc:lny8">
+                <div className="flex items-center gap-4">
                     {/* Collaborators */}
-                    <div className="flex -space-x-2" data-oid="4lh-uxw">
+                    <div className="flex -space-x-2">
                         {collaborators.map((collab) => (
-                            <div key={collab.id} className="relative" data-oid="q:tgjny">
-                                <div
-                                    className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center border-2 border-gray-900 text-sm"
-                                    data-oid="domsiwv"
-                                >
+                            <div key={collab.id} className="relative">
+                                <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center border-2 border-gray-900 text-sm">
                                     {collab.avatar}
                                 </div>
                                 {collab.isTyping && (
-                                    <div
-                                        className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse"
-                                        data-oid="vxa:ycz"
-                                    />
+                                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-pulse" />
                                 )}
                             </div>
                         ))}
                     </div>
 
                     {/* Viewer Count */}
-                    <div
-                        className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full"
-                        data-oid="c5-s1vq"
-                    >
-                        <span className="text-sm" data-oid="jcg6l0v">
-                            👁️
-                        </span>
-                        <span className="text-sm" data-oid="epn9_g2">
-                            {viewerCount}
-                        </span>
+                    <div className="flex items-center gap-2 bg-gray-800 px-3 py-1 rounded-full">
+                        <span className="text-sm">👁️</span>
+                        <span className="text-sm">{viewerCount}</span>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex gap-2" data-oid="curnv2u">
-                        <button
-                            className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition-colors"
-                            data-oid="2b10f3_"
-                        >
+                    <div className="flex gap-2">
+                        <button className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-sm transition-colors">
                             📤 Save Draft
                         </button>
-                        <button
-                            className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-lg text-sm transition-all"
-                            data-oid="d5c55gi"
-                        >
+                        <button className="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-lg text-sm transition-all">
                             🚀 Publish
                         </button>
                         <button
@@ -326,7 +297,6 @@ export default function VisualStoryBuilder() {
                                     ? 'bg-blue-600 hover:bg-blue-700'
                                     : 'bg-gray-700 hover:bg-gray-600'
                             }`}
-                            data-oid="49i88tl"
                         >
                             👁️ {isViewerMode ? 'Exit Viewer' : 'Viewer Mode'}
                         </button>
@@ -335,23 +305,15 @@ export default function VisualStoryBuilder() {
             </nav>
 
             {/* Main Content */}
-            <div className="flex-1 flex overflow-hidden" data-oid="pdeu62e">
+            <div className="flex-1 flex overflow-hidden">
                 {/* Left Sidebar - Node Editor */}
-                <div
-                    className="w-80 bg-gray-900/50 backdrop-blur-sm border-r border-gray-800 p-4 overflow-y-auto"
-                    data-oid="618m-1h"
-                >
-                    <h2 className="text-lg font-semibold mb-4" data-oid="6z.k81_">
-                        📝 Scene Editor
-                    </h2>
+                <div className="w-80 bg-gray-900/50 backdrop-blur-sm border-r border-gray-800 p-4 overflow-y-auto">
+                    <h2 className="text-lg font-semibold mb-4">📝 Scene Editor</h2>
 
                     {selectedNodeData ? (
-                        <div className="space-y-4" data-oid="rd_gyb3">
-                            <div data-oid=":-s36-_">
-                                <label
-                                    className="block text-sm font-medium mb-2"
-                                    data-oid="_0.ubym"
-                                >
+                        <div className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium mb-2">
                                     Scene Title
                                 </label>
                                 <input
@@ -359,17 +321,11 @@ export default function VisualStoryBuilder() {
                                     onChange={(e) => updateSelectedNode({ title: e.target.value })}
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-pink-500 outline-none"
                                     placeholder="Enter scene title..."
-                                    data-oid=".ds21gy"
                                 />
                             </div>
 
-                            <div data-oid="wy:c5jf">
-                                <label
-                                    className="block text-sm font-medium mb-2"
-                                    data-oid="heprfhh"
-                                >
-                                    Content
-                                </label>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Content</label>
                                 <textarea
                                     value={selectedNodeData.content}
                                     onChange={(e) =>
@@ -377,18 +333,12 @@ export default function VisualStoryBuilder() {
                                     }
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm h-32 resize-none focus:border-pink-500 outline-none"
                                     placeholder="Write your scene content..."
-                                    data-oid="o21vq.."
                                 />
                             </div>
 
-                            <div data-oid="x1-ajm1">
-                                <label
-                                    className="block text-sm font-medium mb-2"
-                                    data-oid="vjdt05:"
-                                >
-                                    Tags
-                                </label>
-                                <div className="flex flex-wrap gap-2 mb-2" data-oid="5463ia8">
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Tags</label>
+                                <div className="flex flex-wrap gap-2 mb-2">
                                     {selectedNodeData.tags.map((tag, index) => (
                                         <span
                                             key={index}
@@ -403,7 +353,6 @@ export default function VisualStoryBuilder() {
                                                           ? 'bg-orange-500/20 text-orange-300'
                                                           : 'bg-purple-500/20 text-purple-300'
                                             }`}
-                                            data-oid="5q8np-d"
                                         >
                                             #{tag}
                                         </span>
@@ -423,48 +372,31 @@ export default function VisualStoryBuilder() {
                                             }
                                         }
                                     }}
-                                    data-oid="cyy_h.l"
                                 />
                             </div>
 
-                            <div data-oid="1_s9iie">
-                                <label
-                                    className="block text-sm font-medium mb-2"
-                                    data-oid="utvhjr7"
-                                >
-                                    Visibility
-                                </label>
+                            <div>
+                                <label className="block text-sm font-medium mb-2">Visibility</label>
                                 <select
                                     value={selectedNodeData.visibility}
                                     onChange={(e) =>
                                         updateSelectedNode({ visibility: e.target.value as any })
                                     }
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-pink-500 outline-none"
-                                    data-oid="gnae2e8"
                                 >
-                                    <option value="draft" data-oid="ge5bywi">
-                                        📝 Draft
-                                    </option>
-                                    <option value="public" data-oid="ermo:0b">
-                                        🌍 Public
-                                    </option>
-                                    <option value="locked" data-oid="jgn85fh">
-                                        🔒 Locked
-                                    </option>
+                                    <option value="draft">📝 Draft</option>
+                                    <option value="public">🌍 Public</option>
+                                    <option value="locked">🔒 Locked</option>
                                 </select>
                             </div>
 
-                            <div className="pt-4 border-t border-gray-700" data-oid="7m7nqtc">
-                                <h3 className="text-sm font-medium mb-2" data-oid="9w.:405">
+                            <div className="pt-4 border-t border-gray-700">
+                                <h3 className="text-sm font-medium mb-2">
                                     Choices ({selectedNodeData.choices.length})
                                 </h3>
-                                <div className="space-y-2 mb-3" data-oid="8_ed5w3">
+                                <div className="space-y-2 mb-3">
                                     {selectedNodeData.choices.map((choice, index) => (
-                                        <div
-                                            key={choice.id}
-                                            className="bg-gray-800 rounded-lg p-2"
-                                            data-oid="loy4wvn"
-                                        >
+                                        <div key={choice.id} className="bg-gray-800 rounded-lg p-2">
                                             <input
                                                 value={choice.text}
                                                 onChange={(e) => {
@@ -480,7 +412,6 @@ export default function VisualStoryBuilder() {
                                                 }}
                                                 className="w-full bg-transparent text-sm outline-none"
                                                 placeholder="Choice text..."
-                                                data-oid="c2r43q."
                                             />
                                         </div>
                                     ))}
@@ -496,34 +427,28 @@ export default function VisualStoryBuilder() {
                                         });
                                     }}
                                     className="w-full bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-sm transition-colors"
-                                    data-oid="yru:b23"
                                 >
                                     + Add Choice
                                 </button>
                             </div>
                         </div>
                     ) : (
-                        <div className="text-center text-gray-400 py-8" data-oid="-g_oixs">
-                            <div className="text-4xl mb-4" data-oid="d.cubm1">
-                                📝
-                            </div>
-                            <p data-oid="r257dw.">Select a node to edit its content</p>
-                            <p className="text-sm mt-2" data-oid="pa7zgxw">
-                                Click on any story node in the canvas
-                            </p>
+                        <div className="text-center text-gray-400 py-8">
+                            <div className="text-4xl mb-4">📝</div>
+                            <p>Select a node to edit its content</p>
+                            <p className="text-sm mt-2">Click on any story node in the canvas</p>
                         </div>
                     )}
                 </div>
 
                 {/* Center - Canvas */}
-                <div className="flex-1 relative overflow-hidden bg-gray-950" data-oid="f8.obd1">
+                <div className="flex-1 relative overflow-hidden bg-gray-950">
                     <div
                         ref={canvasRef}
                         className="w-full h-full relative cursor-grab active:cursor-grabbing"
                         onMouseMove={handleMouseMove}
                         onMouseUp={handleMouseUp}
                         onMouseLeave={handleMouseUp}
-                        data-oid="qu112bn"
                     >
                         {/* Grid Background */}
                         <div
@@ -536,14 +461,10 @@ export default function VisualStoryBuilder() {
                                 backgroundSize: '20px 20px',
                                 transform: `translate(${canvasOffset.x}px, ${canvasOffset.y}px) scale(${zoom})`,
                             }}
-                            data-oid="4:2jhgy"
                         />
 
                         {/* Connections SVG */}
-                        <svg
-                            className="absolute inset-0 pointer-events-none z-10"
-                            data-oid="k2k7lbe"
-                        >
+                        <svg className="absolute inset-0 pointer-events-none z-10">
                             {connections.map(renderConnection)}
                         </svg>
 
@@ -563,14 +484,10 @@ export default function VisualStoryBuilder() {
                                 }}
                                 onMouseDown={(e) => handleNodeMouseDown(e, node.id)}
                                 onClick={() => setSelectedNode(node.id)}
-                                data-oid="y0x315w"
                             >
                                 {/* Node Header */}
-                                <div
-                                    className="flex items-center justify-between mb-3"
-                                    data-oid="a23uzst"
-                                >
-                                    <div className="flex items-center gap-2" data-oid="9es4fgu">
+                                <div className="flex items-center justify-between mb-3">
+                                    <div className="flex items-center gap-2">
                                         <div
                                             className={`w-2 h-2 rounded-full ${
                                                 node.visibility === 'public'
@@ -579,43 +496,31 @@ export default function VisualStoryBuilder() {
                                                       ? 'bg-yellow-400'
                                                       : 'bg-red-400'
                                             }`}
-                                            data-oid="n:wj41m"
                                         />
 
-                                        <span className="text-xs text-gray-400" data-oid="w28n2-0">
-                                            {node.author}
-                                        </span>
+                                        <span className="text-xs text-gray-400">{node.author}</span>
                                     </div>
                                     {node.isAIGenerated && (
-                                        <div
-                                            className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded"
-                                            data-oid="m1.jkk-"
-                                        >
+                                        <div className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded">
                                             🤖 AI
                                         </div>
                                     )}
                                 </div>
 
                                 {/* Title */}
-                                <h3
-                                    className="text-white font-semibold mb-2 text-sm"
-                                    data-oid="5_:osa7"
-                                >
+                                <h3 className="text-white font-semibold mb-2 text-sm">
                                     {node.title}
                                 </h3>
 
                                 {/* Content Preview */}
-                                <p
-                                    className="text-gray-300 text-xs mb-3 line-clamp-3 leading-relaxed"
-                                    data-oid="5_pz9_m"
-                                >
+                                <p className="text-gray-300 text-xs mb-3 line-clamp-3 leading-relaxed">
                                     {node.content.length > 120
                                         ? node.content.substring(0, 120) + '...'
                                         : node.content}
                                 </p>
 
                                 {/* Tags */}
-                                <div className="flex flex-wrap gap-1 mb-2" data-oid="e63r9cq">
+                                <div className="flex flex-wrap gap-1 mb-2">
                                     {node.tags.map((tag, index) => (
                                         <span
                                             key={index}
@@ -630,7 +535,6 @@ export default function VisualStoryBuilder() {
                                                           ? 'bg-orange-500/20 text-orange-300'
                                                           : 'bg-purple-500/20 text-purple-300'
                                             }`}
-                                            data-oid="urd2hlv"
                                         >
                                             #{tag}
                                         </span>
@@ -639,30 +543,18 @@ export default function VisualStoryBuilder() {
 
                                 {/* Choices */}
                                 {node.choices.length > 0 && (
-                                    <div
-                                        className="border-t border-gray-700 pt-2 mt-2"
-                                        data-oid="_p8-o55"
-                                    >
-                                        <div
-                                            className="text-xs text-gray-400 mb-1"
-                                            data-oid="f2i8c6x"
-                                        >
-                                            Choices:
-                                        </div>
+                                    <div className="border-t border-gray-700 pt-2 mt-2">
+                                        <div className="text-xs text-gray-400 mb-1">Choices:</div>
                                         {node.choices.slice(0, 2).map((choice, index) => (
                                             <div
                                                 key={choice.id}
                                                 className="text-xs text-gray-300 mb-1"
-                                                data-oid="wjmqn:a"
                                             >
                                                 • {choice.text}
                                             </div>
                                         ))}
                                         {node.choices.length > 2 && (
-                                            <div
-                                                className="text-xs text-gray-500"
-                                                data-oid="9.9ipif"
-                                            >
+                                            <div className="text-xs text-gray-500">
                                                 +{node.choices.length - 2} more...
                                             </div>
                                         )}
@@ -670,7 +562,7 @@ export default function VisualStoryBuilder() {
                                 )}
 
                                 {/* Last Edited */}
-                                <div className="text-xs text-gray-500 mt-2" data-oid="2dtaoe5">
+                                <div className="text-xs text-gray-500 mt-2">
                                     {node.lastEdited.toLocaleTimeString()}
                                 </div>
                             </div>
@@ -680,27 +572,21 @@ export default function VisualStoryBuilder() {
                         <button
                             onClick={addNewNode}
                             className="absolute bottom-6 left-6 w-12 h-12 bg-gradient-to-r from-pink-500 to-purple-500 hover:from-pink-600 hover:to-purple-600 rounded-full flex items-center justify-center text-xl transition-all transform hover:scale-110 shadow-lg z-30"
-                            data-oid="5qqukyx"
                         >
                             +
                         </button>
 
                         {/* Canvas Controls */}
-                        <div
-                            className="absolute top-4 right-4 flex flex-col gap-2 z-30"
-                            data-oid="8ehqoy:"
-                        >
+                        <div className="absolute top-4 right-4 flex flex-col gap-2 z-30">
                             <button
                                 onClick={() => setZoom((prev) => Math.min(prev + 0.1, 2))}
                                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center text-sm transition-colors"
-                                data-oid="m0_7_dd"
                             >
                                 +
                             </button>
                             <button
                                 onClick={() => setZoom((prev) => Math.max(prev - 0.1, 0.5))}
                                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center text-sm transition-colors"
-                                data-oid="hsuxp7t"
                             >
                                 −
                             </button>
@@ -710,7 +596,6 @@ export default function VisualStoryBuilder() {
                                     setCanvasOffset({ x: 0, y: 0 });
                                 }}
                                 className="w-10 h-10 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center text-xs transition-colors"
-                                data-oid="jdsuf6m"
                             >
                                 ⌂
                             </button>
@@ -727,7 +612,6 @@ export default function VisualStoryBuilder() {
                                 top: emoji.y,
                                 animation: 'float 3s ease-in-out infinite',
                             }}
-                            data-oid="ep-6xv7"
                         >
                             {emoji.emoji}
                         </div>
@@ -735,41 +619,33 @@ export default function VisualStoryBuilder() {
                 </div>
 
                 {/* Right Sidebar - AI & Collaboration */}
-                <div
-                    className="w-80 bg-gray-900/50 backdrop-blur-sm border-l border-gray-800 p-4 overflow-y-auto"
-                    data-oid="vga62jb"
-                >
-                    <div className="space-y-6" data-oid="b8hm74h">
+                <div className="w-80 bg-gray-900/50 backdrop-blur-sm border-l border-gray-800 p-4 overflow-y-auto">
+                    <div className="space-y-6">
                         {/* AI Assistant */}
-                        <div data-oid="r-qi:0b">
-                            <h2 className="text-lg font-semibold mb-4" data-oid="i8:xq4n">
-                                🧠 AI Co-Author
-                            </h2>
-                            <div className="space-y-3" data-oid="7hfs6pm">
+                        <div>
+                            <h2 className="text-lg font-semibold mb-4">🧠 AI Co-Author</h2>
+                            <div className="space-y-3">
                                 <textarea
                                     value={aiPrompt}
                                     onChange={(e) => setAiPrompt(e.target.value)}
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-sm h-20 resize-none focus:border-purple-500 outline-none"
                                     placeholder="Continue the story, add branching options, change tone to romantic..."
-                                    data-oid="mw2nd8f"
                                 />
 
                                 <button
                                     onClick={generateWithAI}
                                     disabled={isGenerating || !aiPrompt.trim()}
                                     className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-700 disabled:cursor-not-allowed rounded-lg px-3 py-2 text-sm transition-colors"
-                                    data-oid="g-dq:be"
                                 >
                                     {isGenerating ? '🔄 Generating...' : '✨ Generate Scene'}
                                 </button>
 
-                                <div className="grid grid-cols-1 gap-2" data-oid="lwg1znq">
+                                <div className="grid grid-cols-1 gap-2">
                                     <button
                                         onClick={() =>
                                             setAiPrompt('Suggest what happens next in this scene')
                                         }
                                         className="bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-xs transition-colors text-left"
-                                        data-oid="lw-t3us"
                                     >
                                         💡 Suggest next scene
                                     </button>
@@ -778,7 +654,6 @@ export default function VisualStoryBuilder() {
                                             setAiPrompt('Rewrite this scene with more tension')
                                         }
                                         className="bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-xs transition-colors text-left"
-                                        data-oid="l-y15ij"
                                     >
                                         🔄 Add more tension
                                     </button>
@@ -789,7 +664,6 @@ export default function VisualStoryBuilder() {
                                             )
                                         }
                                         className="bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-xs transition-colors text-left"
-                                        data-oid="5z-x68:"
                                     >
                                         🔀 Generate choices
                                     </button>
@@ -800,7 +674,6 @@ export default function VisualStoryBuilder() {
                                             )
                                         }
                                         className="bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-xs transition-colors text-left"
-                                        data-oid="i5u0oow"
                                     >
                                         🌹 Enhance romance
                                     </button>
@@ -809,137 +682,79 @@ export default function VisualStoryBuilder() {
                         </div>
 
                         {/* Live Collaboration */}
-                        <div data-oid="8aql.dl">
-                            <h2 className="text-lg font-semibold mb-4" data-oid="j2-p0__">
-                                👥 Collaborators
-                            </h2>
-                            <div className="space-y-2" data-oid="xqa:qgf">
+                        <div>
+                            <h2 className="text-lg font-semibold mb-4">👥 Collaborators</h2>
+                            <div className="space-y-2">
                                 {collaborators.map((collab) => (
                                     <div
                                         key={collab.id}
                                         className="flex items-center gap-3 p-2 bg-gray-800 rounded-lg"
-                                        data-oid="5.wzs6t"
                                     >
-                                        <div className="text-lg" data-oid="rab3c14">
-                                            {collab.avatar}
-                                        </div>
-                                        <div className="flex-1" data-oid="3.2miel">
-                                            <div className="text-sm font-medium" data-oid="kwkra.i">
-                                                {collab.name}
-                                            </div>
+                                        <div className="text-lg">{collab.avatar}</div>
+                                        <div className="flex-1">
+                                            <div className="text-sm font-medium">{collab.name}</div>
                                             {collab.isTyping && (
-                                                <div
-                                                    className="text-xs text-green-400"
-                                                    data-oid="8hp1.cu"
-                                                >
+                                                <div className="text-xs text-green-400">
                                                     Typing in scene...
                                                 </div>
                                             )}
                                         </div>
                                         <div
                                             className={`w-2 h-2 rounded-full ${collab.isTyping ? 'bg-green-400 animate-pulse' : 'bg-gray-600'}`}
-                                            data-oid="y.od0u6"
                                         />
                                     </div>
                                 ))}
-                                <button
-                                    className="w-full bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-sm transition-colors"
-                                    data-oid="u_ss-2f"
-                                >
+                                <button className="w-full bg-gray-700 hover:bg-gray-600 rounded-lg px-3 py-2 text-sm transition-colors">
                                     + Invite Collaborator
                                 </button>
                             </div>
                         </div>
 
                         {/* Version History */}
-                        <div data-oid="_ivxx4f">
-                            <h2 className="text-lg font-semibold mb-4" data-oid="-noro1_">
-                                🔗 Version History
-                            </h2>
-                            <div className="space-y-2" data-oid="-7tyi9b">
-                                <div
-                                    className="p-2 bg-gray-800 rounded-lg border-l-2 border-green-400"
-                                    data-oid="n75ij4c"
-                                >
-                                    <div className="text-sm font-medium" data-oid="3cx6qdr">
-                                        Current Version
-                                    </div>
-                                    <div className="text-xs text-gray-400" data-oid="asdq:pe">
-                                        2 minutes ago • You
-                                    </div>
+                        <div>
+                            <h2 className="text-lg font-semibold mb-4">🔗 Version History</h2>
+                            <div className="space-y-2">
+                                <div className="p-2 bg-gray-800 rounded-lg border-l-2 border-green-400">
+                                    <div className="text-sm font-medium">Current Version</div>
+                                    <div className="text-xs text-gray-400">2 minutes ago • You</div>
                                 </div>
-                                <div className="p-2 bg-gray-800/50 rounded-lg" data-oid="g6upinw">
-                                    <div className="text-sm" data-oid="pqpq:p5">
-                                        Added opening scene
-                                    </div>
-                                    <div className="text-xs text-gray-400" data-oid="nxr1:cz">
+                                <div className="p-2 bg-gray-800/50 rounded-lg">
+                                    <div className="text-sm">Added opening scene</div>
+                                    <div className="text-xs text-gray-400">
                                         15 minutes ago • You
                                     </div>
                                 </div>
-                                <div className="p-2 bg-gray-800/50 rounded-lg" data-oid=".z:cm57">
-                                    <div className="text-sm" data-oid="g1xjm9m">
-                                        Initial story creation
-                                    </div>
-                                    <div className="text-xs text-gray-400" data-oid="514wj.u">
-                                        1 hour ago • You
-                                    </div>
+                                <div className="p-2 bg-gray-800/50 rounded-lg">
+                                    <div className="text-sm">Initial story creation</div>
+                                    <div className="text-xs text-gray-400">1 hour ago • You</div>
                                 </div>
-                                <button
-                                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg px-3 py-2 text-sm transition-all"
-                                    data-oid="hztii_p"
-                                >
+                                <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-lg px-3 py-2 text-sm transition-all">
                                     🍴 Fork this story
                                 </button>
                             </div>
                         </div>
 
                         {/* Live Stats */}
-                        <div data-oid="h_ldc2p">
-                            <h2 className="text-lg font-semibold mb-4" data-oid="bcb75-4">
-                                📊 Live Stats
-                            </h2>
-                            <div className="space-y-2" data-oid="t2-57b:">
-                                <div
-                                    className="flex justify-between items-center p-2 bg-gray-800 rounded-lg"
-                                    data-oid="7mqe1o9"
-                                >
-                                    <span className="text-sm" data-oid="7n86u1j">
-                                        👁️ Viewers
-                                    </span>
-                                    <span className="text-sm font-medium" data-oid="r6bk5zp">
-                                        {viewerCount}
-                                    </span>
+                        <div>
+                            <h2 className="text-lg font-semibold mb-4">📊 Live Stats</h2>
+                            <div className="space-y-2">
+                                <div className="flex justify-between items-center p-2 bg-gray-800 rounded-lg">
+                                    <span className="text-sm">👁️ Viewers</span>
+                                    <span className="text-sm font-medium">{viewerCount}</span>
                                 </div>
-                                <div
-                                    className="flex justify-between items-center p-2 bg-gray-800 rounded-lg"
-                                    data-oid="n9zp3vf"
-                                >
-                                    <span className="text-sm" data-oid="7yw8z35">
-                                        📝 Scenes
-                                    </span>
-                                    <span className="text-sm font-medium" data-oid="q35sbg0">
-                                        {nodes.length}
-                                    </span>
+                                <div className="flex justify-between items-center p-2 bg-gray-800 rounded-lg">
+                                    <span className="text-sm">📝 Scenes</span>
+                                    <span className="text-sm font-medium">{nodes.length}</span>
                                 </div>
-                                <div
-                                    className="flex justify-between items-center p-2 bg-gray-800 rounded-lg"
-                                    data-oid="_jvro34"
-                                >
-                                    <span className="text-sm" data-oid="z6my7i5">
-                                        🔗 Connections
-                                    </span>
-                                    <span className="text-sm font-medium" data-oid="0-r.mx3">
+                                <div className="flex justify-between items-center p-2 bg-gray-800 rounded-lg">
+                                    <span className="text-sm">🔗 Connections</span>
+                                    <span className="text-sm font-medium">
                                         {connections.length}
                                     </span>
                                 </div>
-                                <div
-                                    className="flex justify-between items-center p-2 bg-gray-800 rounded-lg"
-                                    data-oid="3ojagrr"
-                                >
-                                    <span className="text-sm" data-oid="-c0dhmp">
-                                        👥 Collaborators
-                                    </span>
-                                    <span className="text-sm font-medium" data-oid="pt2jsl6">
+                                <div className="flex justify-between items-center p-2 bg-gray-800 rounded-lg">
+                                    <span className="text-sm">👥 Collaborators</span>
+                                    <span className="text-sm font-medium">
                                         {collaborators.length}
                                     </span>
                                 </div>
@@ -950,7 +765,7 @@ export default function VisualStoryBuilder() {
             </div>
 
             {/* Custom CSS for animations */}
-            <style jsx data-oid="iz_t5s0">{`
+            <style jsx>{`
                 @keyframes float {
                     0%,
                     100% {
