@@ -1,6 +1,8 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import ProtectedRoute from './auth/ProtectedRoute';
+import Navbar from '../components/Navbar';
 
 export const metadata: Metadata = {
     title: 'My New App',
@@ -11,6 +13,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en" data-oid="5.6rtyd">
             <body className="" data-oid="c0:5ybt">
+                <Navbar />
                 <ProtectedRoute>
                     {children}
                 </ProtectedRoute>

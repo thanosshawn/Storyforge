@@ -54,29 +54,7 @@ export default function Page() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-900 via-pink-900 to-red-900 text-white">
-            {/* Header */}
-            <nav className="relative z-10 px-6 py-4 flex justify-between items-center backdrop-blur-sm bg-black/20">
-                <div className="flex items-center space-x-3">
-                    <span className="text-2xl">🌟</span>
-                    <span className="text-xl font-bold tracking-tight">StoryForge</span>
-                </div>
-                <div className="flex space-x-4 items-center">
-                    {user ? (
-                        <div className="flex items-center space-x-3">
-                            <img
-                                src={user.photoURL || '/images/logo-text.png'}
-                                alt="User Avatar"
-                                className="w-8 h-8 rounded-full border border-white/30"
-                            />
-                            <span className="text-sm font-medium">{user.displayName || 'User'}</span>
-                        </div>
-                    ) : (
-                        <button className="px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all">
-                            Sign In
-                        </button>
-                    )}
-                </div>
-            </nav>
+        
 
             {/* Hero Section */}
             <div
