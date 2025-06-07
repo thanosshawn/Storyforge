@@ -2,13 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../lib/firebase';
+import { User } from 'firebase/auth';
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
     const [activeTab, setActiveTab] = useState<keyof typeof features>('builder');
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         setIsVisible(true);
+
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
     }, []);
 
     const features = {
@@ -50,13 +60,21 @@ export default function Page() {
                     <span className="text-2xl">🌟</span>
                     <span className="text-xl font-bold tracking-tight">StoryForge</span>
                 </div>
-                <div className="flex space-x-4">
-                    <button className="px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all">
-                        Sign In
-                    </button>
-                    <button className="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full hover:from-pink-600 hover:to-purple-600 transition-all font-medium">
-                        Start Creating
-                    </button>
+                <div className="flex space-x-4 items-center">
+                    {user ? (
+                        <div className="flex items-center space-x-3">
+                            <img
+                                src={user.photoURL || '/images/logo-text.png'}
+                                alt="User Avatar"
+                                className="w-8 h-8 rounded-full border border-white/30"
+                            />
+                            <span className="text-sm font-medium">{user.displayName || 'User'}</span>
+                        </div>
+                    ) : (
+                        <button className="px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all">
+                            Sign In
+                        </button>
+                    )}
                 </div>
             </nav>
 
