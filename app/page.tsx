@@ -2,13 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../lib/firebase';
+import { User } from 'firebase/auth';
 
 export default function Page() {
     const [isVisible, setIsVisible] = useState(false);
     const [activeTab, setActiveTab] = useState<keyof typeof features>('builder');
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         setIsVisible(true);
+
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+
+        return () => unsubscribe();
     }, []);
 
     const features = {
@@ -44,21 +54,7 @@ export default function Page() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-purple-900 via-pink-900 to-red-900 text-white">
-            {/* Header */}
-            <nav className="relative z-10 px-6 py-4 flex justify-between items-center backdrop-blur-sm bg-black/20">
-                <div className="flex items-center space-x-3">
-                    <span className="text-2xl">🌟</span>
-                    <span className="text-xl font-bold tracking-tight">StoryForge</span>
-                </div>
-                <div className="flex space-x-4">
-                    <button className="px-4 py-2 border border-white/30 rounded-full hover:bg-white/10 transition-all">
-                        Sign In
-                    </button>
-                    <button className="px-6 py-2 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full hover:from-pink-600 hover:to-purple-600 transition-all font-medium">
-                        Start Creating
-                    </button>
-                </div>
-            </nav>
+        
 
             {/* Hero Section */}
             <div
